@@ -33,32 +33,6 @@ body {
     font-size:10px;
     line-height:100%;
 }
-
-#title {
-    font-size:25px;
-    text-align:center;
-    margin-bottom:5px;
-    margin-top:5px;
-    color:{color:text};
-    font-family: 'Pacifico', sans-serif, cursive;
-    -webkit-transition: all 0.2s ease-in-out;
-    -moz-transition: all 0.2s ease-in-out;
-    -o-transition: all 0.2s ease-in-out;
-    transition: all 0.2s ease-in-out;
-}
-
-#title a {
-    color:{color:text};
-}
-    
-#title a:hover {
-    
-    color:{color:Linkhover};
-    -webkit-transition: all 0.4s ease-in-out;
-    -moz-transition: all 0.4s ease-in-out;
-    -o-transition: all 0.4s ease-in-out;
-    transition: all 0.4s ease-in-out;
-}
  
 a {
     text-decoration:none;
@@ -91,21 +65,35 @@ h1 {
     font-size:25px;
     font-family: 'Pacifico', cursive;
 }
- 
-#entries {
-    padding:10px;
-    width:500px;
-    margin-left:600px;
-    margin-top:40px;
-    background-color:white;
-    opacity:0.8;
-}
- 
-#post { 
-    width:500px;
-    padding-bottom:20px;
+
+/*SIDEBAR*/
+    
+#title {
+    font-size:25px;
+    text-align:center;
+    margin-bottom:5px;
+    margin-top:5px;
+    color:{color:text};
+    font-family: 'Pacifico', sans-serif, cursive;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
 }
 
+#title a {
+    color:{color:text};
+}
+    
+#title a:hover {
+    
+    color:{color:Linkhover};
+    -webkit-transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out;
+    -o-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+}
+ 
 #sidebar {
     width:300px;
     height:315px;
@@ -174,6 +162,28 @@ h1 {
     text-align:center;
     color:{color:text};
 }
+    
+/*POSTS*/
+
+.post { 
+    width:500px;
+    padding-bottom:20px;
+}   
+    
+.entries {
+    padding:10px;
+    width:500px;
+    margin-left:600px;
+    margin-top:40px;
+    background-color:white;
+    opacity:0.8;
+}
+
+.photo-post{
+    margin-left: auto;
+    margin-right: auto;
+}
+
  
 #infor {
     text-align:left;
@@ -190,7 +200,7 @@ h1 {
     opacity:0.6;
 }
     
-#asker {
+.asker {
     float:left;
     margin-right:5px;
 }
@@ -227,82 +237,165 @@ h1 {
     
 <body>
  
-<div id="sidebar">
- 
-    <div id="title">
-        <a href="/">{Title}</a>
-    </div>
-    
-    <div id="sidebar-links">
-        <a href="/archive">Past</a>
-        <a href="/ask">&nbsp; &nbsp; &nbsp; Ask</a> 
-        <a href="/links">&nbsp; &nbsp; &nbsp; Links</a>   
-    </div>
-    
-    <!--view counter-->
-    <div id="script">
-        <script language="JavaScript" src="http://s1.freehostedscripts.net/ocount.php?site=ID2613184&name=%"></script>
-    </div>
+    <div id="sidebar">
 
-    
-    <div id="sidebarimage"><img src="{image:Sidebar}"></div>
-    
-    <div id ="minidescription"> {text:MiniDescription} <br> </div>
- 
-    <div id="description">{Description}</div>
- 
-    <div id="pagination">
-    {block:Pagination}{block:PreviousPage}<a href="{PreviousPage}">«</a>{/block:PreviousPage}
-    {block:NextPage}<a href="{NextPage}">»</a>{/block:NextPage}{/block:Pagination}    
+        <div id="title">
+            <a href="/">{Title}</a>
+        </div>
+
+        <div id="sidebar-links">
+            <a href="/archive">Past</a>
+            <a href="/ask">&nbsp; &nbsp; &nbsp; Ask</a> 
+            <a href="/links">&nbsp; &nbsp; &nbsp; Links</a>   
+        </div>
+
+        <!--view counter-->
+        <div id="script">
+            <script language="JavaScript" src="http://s1.freehostedscripts.net/ocount.php?site=ID2613184&name=%"></script>
+        </div>
+
+
+        <div id="sidebarimage"><img src="{image:Sidebar}"></div>
+
+        <div id ="minidescription"> 
+            {text:MiniDescription}<br>
+        </div>
+
+        <div id="description">
+            {Description}
+        </div>
+
+        <div id="pagination">
+            {block:Pagination}
+                {block:PreviousPage}<a href="{PreviousPage}">«</a>{/block:PreviousPage}
+                {block:NextPage}<a href="{NextPage}">»</a>{/block:NextPage}
+            {/block:Pagination}    
+        </div>
     </div>
-     
-</div>
  
-        <div id="entries">{block:Posts}
-    <div id="post">
+    <div class="entries">
+        {block:Posts}
+        <div class="post">
+            
+<!--            TEXT POST-->
+            {block:Text}
+            {block:Title}
+				<h1>
+					<a href="{Permalink}">{Title}</a>
+				</h1>
+            {/block:Title}
+            {Body}
+            {/block:Text}
+            
+<!--            PHOTO POST-->
+            {block:Photo}
+            <div class="photo-post">
+                {LinkOpenTag}
+                    <img src="{PhotoURL-500}">
+                {LinkCloseTag}
+                {block:Caption}
+                    {Caption}
+                {/block:Caption}
+            </div>
+            {/block:Photo}
  
-{block:Text}<h1>{block:Title}{Title}{/block:Title}</h1>{Body}{/block:Text}
+<!--            PHOTOSET-->
+            {block:Photoset}
+                {Photoset-500}
+                {block:Caption}
+                    {Caption}
+                {/block:Caption}
+            {/block:Photoset}
+            
+<!--            QUOTE POST-->
+            {block:Quote}
+                {Quote}
+                {block:Source} 
+                    —{Source}
+                {/block:Source}
+            {/block:Quote}
  
-{block:Photo}{LinkOpenTag}<img src="{PhotoURL-500}">{LinkCloseTag}{block:Caption}{Caption}{/block:Caption}{/block:Photo}
+<!--            LINK POST-->
+            {block:Link}
+                <h1>
+                    <a href="{URL}" {Target}>{Name}</a>
+                </h1>
+                {block:Description}
+                    {Description}
+                {/block:Description}
+            {/block:Link}
+            
+<!--            CHAT POST-->
+            {block:Chat}
+                {block:Title}
+                    <h1>{Title}</h1>
+                {/block:Title}
+            
+                {block:Lines}
+                    {block:Label}
+                        <b>{Label}</b>
+                    {/block:Label} 
+                    {Line}<br>
+                {/block:Lines}
+            {/block:Chat}
  
-{block:Photoset}{Photoset-500}{block:Caption}{Caption}{/block:Caption}{/block:Photoset}
+<!--            AUDIO POST-->
+            {block:Audio}
+                {AudioPlayerWhite}
+                {block:Caption}
+                    {Caption}
+                {/block:Caption}
+            {/block:Audio}
  
-{block:Quote}{Quote}{block:Source} —{Source}{/block:Source}{/block:Quote}
+<!--            VIDEO POST-->
+            {block:Video}
+                {Video-500}
+                {block:Caption}
+                    {Caption}
+                {/block:Caption}
+            {/block:Video}
  
-{block:Link}<h1><a href="{URL}" {Target}>{Name}</a></h1>{block:Description}{Description}{/block:Description}{/block:Link}
+<!--            ANSWER POST-->
+            {block:Answer}
+                <div class="asker">
+                    <img src="{AskerPortraitURL-24}">
+                </div>
+                {Asker}:<br>{Question}<br>{Answer}
+            {/block:Answer}
  
-{block:Chat}{block:Title}<h1>{Title}</h1>{/block:Title}{block:Lines}{block:Label}<b>{Label}</b>{/block:Label} {Line}<br>{/block:Lines}{/block:Chat}
- 
-{block:Audio}{AudioPlayerWhite}{block:Caption}{Caption}{/block:Caption}{/block:Audio}
- 
-{block:Video}{Video-500}{block:Caption}{Caption}{/block:Caption}{/block:Video}
- 
-{block:Answer}<div id="asker"><img src="{AskerPortraitURL-24}"></div>{Asker}:<br>{Question}<br>{Answer}{/block:Answer}
- 
-<div id="info" style="height:20px;">
-<div id="stuff" style="width:200px; float:left;">
-{block:Date} {ShortMonth} {DayOfMonthWithZero}{/block:Date} 
+            <div id="info" style="height:20px;">
+                <div id="stuff" style="width:200px; float:left;">
+                    {block:Date} {ShortMonth} {DayOfMonthWithZero}{/block:Date} 
+                    <a href="{Permalink}"> {NoteCount}%</a> 
+                    <br>
 
-<a href="{Permalink}"> {NoteCount}%</a>
-<br>
+                    {block:RebloggedFrom} 
+                        source:<a href="{ReblogRootURL}"title="{ReblogRoottitle}">{ReblogParentName}</a>{
+                    {/block:RebloggedFrom} 
+                </div>
 
-{block:RebloggedFrom} source:<a href="{ReblogRootURL}"title="{ReblogRoottitle}">{ReblogParentName}</a>{/block:RebloggedFrom} 
+                <div id="like" style="width:40px; float:right;">
+                    {LikeButton color="white" size="20"}
+                </div>
 
-</div>
-<div id="like" style="width:40px; float:right;">
- {LikeButton color="white" size="20"}
- </div>
-
-    <div id="tags">{block:HasTags}{block:Tags} #<a href="{TagURL}">{Tag}      </a>{/block:Tags}{/block:HasTags}
-    
+                <div id="tags">
+                    {block:HasTags}
+                        {block:Tags} 
+                            #<a href="{TagURL}">{Tag}      </a>
+                        {/block:Tags}
+                    {/block:HasTags}
+                </div>
+            </div>
+        </div>
+            {block:PostNotes}
+                {PostNotes}
+            {/block:PostNotes}
+        
+        {/block:Posts}  
     </div>
-</div>
- 
-    </div>
-{block:PostNotes}{PostNotes}{/block:PostNotes}
-{/block:Posts}  </div>
  
 <div id="credit" style="width:30px; heigh:30px;"><a href="http://cape-themes.tumblr.com/"> <3 </a></div>
 <!-- please keep the source! Even if you change some things! I tried to make it small, but it's imporant to me! -->
 
-</body></html>
+</body>
+</html>
