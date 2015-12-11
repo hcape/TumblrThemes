@@ -11,6 +11,7 @@
     //meta description
     {/block:Description}
 -->
+<meta name="color:TextBorder" content="#8edad5"/>
 <meta name="Description" content="{MetaDescription}" />
 <meta name="color:Background" content="#ffffff"/>
 <meta name="color:Text" content="#838282"/>
@@ -19,8 +20,6 @@
 <meta name="color:Linkhover" content="#838282"/>
 <meta name="text:MiniDescription" content="Hello Friends!"/>
 
-    
-
 <style type="text/css">
 body {
     
@@ -28,7 +27,7 @@ body {
     background-repeat: repeat;
     background-attachment:fixed;
     margin:0px;
-    color:{color:text};
+    color:{color:Text};
     font-family: Helvetica, Arial, sans-serif;
     font-size:10px;
     line-height:100%;
@@ -36,7 +35,7 @@ body {
  
 a {
     text-decoration:none;
-    color:{color:link};
+    color:{color:Link};
     -webkit-transition: all 0.4s ease-in-out;
     -moz-transition: all 0.4s ease-in-out;
     -o-transition: all 0.4s ease-in-out;
@@ -44,7 +43,7 @@ a {
 }
 
 a:hover {
-    color:{color:linkhover};
+    color:{color:Linkhover};
     -webkit-transition: all 0.3s ease-in-out;
     -moz-transition: all 0.3s ease-in-out;
     -o-transition: all 0.3s ease-in-out;
@@ -140,6 +139,7 @@ h1 {
     text-align:center;
     padding:5px;
     font-size:12px;
+    line-height: 13px;
 }
     
 #description {
@@ -160,7 +160,7 @@ h1 {
 #pagination {
     font-size: 30px;
     text-align:center;
-    color:{color:text};
+    color:{color:Text};
 }
     
 /*POSTS*/
@@ -176,14 +176,27 @@ h1 {
     margin-left:600px;
     margin-top:40px;
     background-color:white;
-    opacity:0.8;
+    opacity:0.95;
 }
 
-.photo-post{
+.photo-post img{
+    display:block;
     margin-left: auto;
     margin-right: auto;
 }
 
+.text-post blockquote{
+    font-size:14px;
+    padding:5px;
+    border: 1px solid;
+    border-color:{color:TextBorder};
+    border-radius:3px;
+    line-height: 15px;
+}
+
+.text-post > p, .text-post > a{
+    opacity:0.5;
+}
  
 #infor {
     text-align:left;
@@ -284,7 +297,9 @@ h1 {
 					<a href="{Permalink}">{Title}</a>
 				</h1>
             {/block:Title}
-            {Body}
+            <div class="text-post">
+                {Body}
+            </div>
             {/block:Text}
             
 <!--            PHOTO POST-->
@@ -293,18 +308,22 @@ h1 {
                 {LinkOpenTag}
                     <img src="{PhotoURL-500}">
                 {LinkCloseTag}
+                <div class="caption">
                 {block:Caption}
                     {Caption}
                 {/block:Caption}
+                </div>
             </div>
             {/block:Photo}
  
 <!--            PHOTOSET-->
             {block:Photoset}
                 {Photoset-500}
+                <div class="caption">
                 {block:Caption}
                     {Caption}
                 {/block:Caption}
+                </div>
             {/block:Photoset}
             
 <!--            QUOTE POST-->
@@ -369,9 +388,11 @@ h1 {
                     <a href="{Permalink}"> {NoteCount}%</a> 
                     <br>
 
+<!--
                     {block:RebloggedFrom} 
                         source:<a href="{ReblogRootURL}"title="{ReblogRoottitle}">{ReblogParentName}</a>{
                     {/block:RebloggedFrom} 
+-->
                 </div>
 
                 <div id="like" style="width:40px; float:right;">
