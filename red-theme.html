@@ -1,0 +1,457 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>{Title}</title>
+<link rel="shortcut icon" href="{Favicon}">
+<link rel="alternate" type="application/rss+xml" href="{RSS}">
+
+<meta name="color:Background" content=""/>
+<meta name="color:Title" content="#d5b9d5"/>
+<meta name="color:Text" content="#d5b9d5"/>
+<meta name="color:Link" content=""/>
+<meta name="image:Sidebar" content=""/>
+<meta name="color:Sidebar" content="#990033"/>
+<meta name="color:Sidebar Links" content="#990033"/>
+<meta name="color:Ask" content="#cba47d"/>
+<meta name="color:Past" content="#be8d5d"/>
+<meta name="color:Sidebar" content="#a85075"/>
+<meta name="color:Link1" content="#c47c5f"/>
+<meta name="color:Link2" content=""/>
+<meta name="color:Linkhover" content="#fff"/>
+<meta name="color:Description" content="#6b0f2e"/>
+<meta name="text:MiniDescription" content="Hello Friends!"/>
+ 
+<style type="text/css">
+ 
+body {
+    background-image: url("http://i.imgur.com/ErfPOWk.png");
+/*
+    background-repeat: repeat;
+    background-attachment:fixed;
+    margin:0px;
+*/
+    color:{color:Text};
+    font-family: Helvetica, Arial sans-serif;
+    font-size:10px;
+    line-height:100%;
+}
+
+/*    SIDEBAR*/
+#sidebar {
+    width:200px;
+    position:fixed;
+    top:0px;
+    left:180px;
+    bottom:0px;
+    background-color:{color:Sidebar};
+    opacity:0.7;
+     
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+ 
+#sidebar:hover {
+    opacity:0.9;   
+    -webkit-transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out;
+    -o-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+}
+   
+#leftimg img {    
+    width:174px;
+    height:auto;
+    z-index:1;
+    position:fixed;
+    right:180px;
+    left:0px;
+    padding-top:0px;  
+    top: 50%;
+    transform: translateY(-50%);
+    border-color:{color:Ask};
+    border:3px solid;
+}
+ 
+#leftimg {
+    position:fixed;
+    height:100%;
+    width:180px;
+    top:0;
+    opacity:0.8;
+}
+
+#title {
+    font-size:25px;
+    text-align:center;
+    margin-bottom:5px;
+    margin-top:65px;
+    font-family: 'Pacifico', cursive;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+
+#title a {
+    color:{color:Title};
+}
+ 
+#title a:hover {
+    color:{color:Linkhover};
+}
+ 
+.sidebar-menu {
+    font-family: 'Pacifico', cursive;
+    text-align:center;
+    font-size:16px;
+    width:200px;
+    height:40px;
+    position:fixed;
+    opacity:0.5;
+    -webkit-transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out;
+    -o-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+}
+
+.sidebar-menu a {
+    opacity:0.0;
+    font-size:20px;
+    color:{color:Sidebar Links};
+    padding-left:9em;
+}
+
+.sidebar-menu:hover {
+    width:320px;
+    opacity:1.0;
+    display:block;
+}
+
+.sidebar-menu a:hover{
+    opacity:1.0;
+    color:{color:Sidebar Links};
+}
+
+#ask {
+    top:150px;
+    background-color:{color:Ask};
+}
+
+#past {
+    top:200px;
+    background-color:{color:Past};
+}
+    
+#links {  
+    top:250px;
+    background-color:{color:Link1};
+}
+    
+#links2 {
+    top:300px;
+    background-color:{color:link2};
+}
+ 
+#minidescription {   
+    text-align:center;
+    font-size:15px;
+    color:{color:text};
+    padding-top:400px;
+}
+    
+#description {
+    position:fixed; 
+    top:350px;
+    width:200px;
+    background-color:{color:description};
+    padding:5px;
+    text-align:center;
+    opacity:0.0;
+    color:{color:text};
+     -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+ 
+#description:hover {
+    opacity:1.0;
+    -webkit-transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out;
+    -o-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+   
+}
+ 
+#pagination {
+    font-size: 30px;
+    text-align:center;
+    color:{color:text};
+}
+ 
+#infor {
+    text-align:left;
+    margin-top:10px;
+    margin-left:60px;
+    font-size:12px;
+}
+ 
+#info {
+    text-align:left;
+    margin-top:10px;
+    font-size:12px;
+    background-color:{color:link2};
+    opacity:0.8;
+}
+#asker {
+    float:left;
+    margin-right:5px;
+}
+
+    
+
+ 
+a {
+    text-decoration:none;
+    outline:none;
+    -moz-outline-style:none;
+    color:{color:Link};
+}
+ 
+a:hover {
+    color:{color:Linkhover};
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+ 
+tr {
+    font-size:18px;
+    font-family: 'Pacifico', cursive;
+}
+    
+td, table {
+    padding: 10px;
+}
+ 
+blockquote {
+    padding-left:5px;
+    border-left:2px solid;
+}
+   
+blockquote blockquote {
+    padding-left:5px;
+    border-left:2px solid;
+}
+ 
+h1 {
+    font-size:25px;
+    font-family: 'Pacifico', cursive;
+    line-height:25px;
+}
+ 
+.entries {
+    padding:10px;
+    width:500px;
+    margin-left:600px;
+    margin-top:40px;
+    background-color:{color:Sidebar};
+    opacity:0.8;
+}
+ 
+.post {
+    width:500px;
+    padding-bottom:20px;
+    color:{color:text};
+}
+  
+#tags {
+    opacity:0.0;
+}
+ 
+#like {
+    opacity:1.0;
+}
+ 
+#credit {
+   
+     position: fixed;
+     bottom: 10px;
+     right: 10px;
+     font-size:16px;
+}
+ 
+{CustomCSS}</style></head>
+ 
+ <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<body>
+ 
+<div id="sidebar">
+    <div id="title"><a href="/">
+        {Title}</a>
+    </div>
+    <div id="past" class="sidebar-menu">
+        <br>
+        <a href="/archive">Past</a>
+    </div>
+    <div id="ask" class="sidebar-menu">
+        <br>
+        <a href="/ask">Ask</a>
+    </div>
+    <div id="links" class="sidebar-menu">
+        <br>
+        <a href="/tags">Tags</a>
+    </div>
+    <div id="links2" class="sidebar-menu">
+        <br>
+        <a href="http://insertcoins.tumblr.com">Main</a>
+    </div>
+
+    <!-- if you want a counter for people that visit your blog I used freehostedscripts.net <div id="script">
+   <script language="JavaScript" src="put the link here"></script>
+   </div> -->
+    
+    <br><br><br>
+    <div id ="minidescription"> {text:MiniDescription} <br> </div>
+ 
+    <div id="description"> {Description} <br> <br>
+   <embed src="http://www.sheepproductions.com/billy/billy.swf?autoplay=false&f0=https://www.dropbox.com/s/4h1xmku02kdqxrz/12%20-%20nc17.mp3?dl=1&t0=nc17&f1=https://www.dropbox.com/s/r1fk6c9xrf3r26p/05%20-%20fugl.mp3?dl=1&t1=fugl&f2=https://www.dropbox.com/s/rndk9939gm04r3i/09%20-%20walt.mp3?dl=1&t2=walt&f3=https://www.dropbox.com/s/4lnd6bsv1nnf1y2/02%20-%20von%20%28feat.%20Arnor%20Dan%29.mp3?dl=1&t3=VON&total=4" quality="high"  width="190" height="15" name="billy" align="middle" type="application/x-shockwave-flash" /> </div>
+ <br><br>
+    <div id="pagination">
+    {block:Pagination}{block:PreviousPage}<a href="{PreviousPage}">«</a>{/block:PreviousPage}
+    {block:NextPage}<a href="{NextPage}">»</a>{/block:NextPage}{/block:Pagination}    
+    </div>
+     
+</div>
+
+ 
+  <div id="leftimg">
+  <img src ="{image:Sidebar}">
+</div>
+    
+    <div class="entries">
+        {block:Posts}
+        <div class="post">
+                     
+<!--            TEXT POST-->
+            {block:Text}
+            {block:Title}
+				<h1>
+					<a href="{Permalink}">{Title}</a>
+				</h1>
+            {/block:Title}
+            <div class="text-post">
+                {Body}
+            </div>
+            {/block:Text}
+            
+<!--            PHOTO POST-->
+            {block:Photo}
+            <div class="photo-post">
+                {LinkOpenTag}
+                    <img src="{PhotoURL-500}">
+                {LinkCloseTag}
+                <div class="caption">
+                {block:Caption}
+                    {Caption}
+                {/block:Caption}
+                </div>
+            </div>
+            {/block:Photo}
+ 
+<!--            PHOTOSET-->
+            {block:Photoset}
+                {Photoset-500}
+                <div class="caption">
+                {block:Caption}
+                    {Caption}
+                {/block:Caption}
+                </div>
+            {/block:Photoset}
+            
+<!--            QUOTE POST-->
+            {block:Quote}
+                {Quote}
+                {block:Source} 
+                    —{Source}
+                {/block:Source}
+            {/block:Quote}
+ 
+<!--            LINK POST-->
+            {block:Link}
+                <h1>
+                    <a href="{URL}" {Target}>{Name}</a>
+                </h1>
+                {block:Description}
+                    {Description}
+                {/block:Description}
+            {/block:Link}
+            
+<!--            CHAT POST-->
+            {block:Chat}
+                {block:Title}
+                    <h1>{Title}</h1>
+                {/block:Title}
+            
+                {block:Lines}
+                    {block:Label}
+                        <b>{Label}</b>
+                    {/block:Label} 
+                    {Line}<br>
+                {/block:Lines}
+            {/block:Chat}
+ 
+<!--            AUDIO POST-->
+            {block:Audio}
+            <div class="audio-post">
+                {AudioPlayerWhite}
+            </div>
+            <div class="caption">
+                {block:Caption}
+                    {Caption}
+                {/block:Caption}
+            </div>
+            {/block:Audio}
+ 
+<!--            VIDEO POST-->
+            {block:Video}
+                {Video-500}
+            <div class="caption">
+                {block:Caption}
+                    {Caption}
+                {/block:Caption}
+            </div>
+            {/block:Video}
+ 
+<!--            ANSWER POST-->
+            {block:Answer}
+                <div class="asker">
+                    <img src="{AskerPortraitURL-24}">
+                </div>
+                {Asker}:<br>{Question}<br>{Answer}
+            {/block:Answer}
+ 
+            <div class="info" style="height:20px;">
+                <div id="stuff" style="width:200px; float:left;">
+                    {block:Date} {ShortMonth} {DayOfMonthWithZero}{/block:Date}
+                    <a href="{Permalink}">&nbsp;&nbsp;&nbsp;{NoteCount}</a> 
+                    <br>
+                </div>
+
+                <div class="like" style="width:40px; float:right;">
+                    {LikeButton color="white" size="20"}
+                </div>
+
+            </div>
+        </div>
+        {/block:Posts} 
+    </div>
+ 
+<div id="credit" style="width:30px; heigh:30px;"><a href="http://cape-themes.tumblr.com/"> <3 </a></div>
+<!-- please keep the source! Even if you change some things! I tried to make it small, but it's imporant to me! -->
+
+</body>
+</html>

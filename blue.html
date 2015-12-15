@@ -110,7 +110,6 @@ h1 {
     transition: all 0.2s ease-in-out;
 }
 
-
 #sidebar:hover {
     opacity:0.9;
     border: 7px solid white;
@@ -135,6 +134,18 @@ h1 {
     opacity:1.0;
 }
  
+    
+#sidebar-links{
+    font-family: 'Pacifico', cursive;
+    text-align:center;
+    font-size:16px;
+    padding-top:30px;
+}
+
+#script{
+    padding-left:135px;
+    padding-top:12px;
+}
 #minidescription{
     text-align:center;
     padding:5px;
@@ -167,7 +178,7 @@ h1 {
 
 .post { 
     width:500px;
-    padding-bottom:20px;
+    padding-bottom:10px;
 }   
     
 .entries {
@@ -194,21 +205,26 @@ h1 {
     line-height: 15px;
 }
 
-.text-post > p, .text-post > a{
+.text-post > p, .text-post > a, .caption{
     opacity:0.5;
 }
- 
-#infor {
-    text-align:left;
-    margin-top:10px;
-    margin-left:60px;
-    font-size:12px;
+
+blockquote{
+    border-color:{color:TextBorder};
+}
+
+.audio-post {
+    border: 1px solid;
+    border-color:{color:TextBorder};
+    border-radius:3px;
 }
  
-#info {
+.info {
     text-align:left;
     margin-top:10px;
-    font-size:11px;
+    font-size:13px;
+    line-height: 20px;
+    vertical-align: middle;
     background-color:#cbeff5;
     opacity:0.6;
 }
@@ -218,25 +234,6 @@ h1 {
     margin-right:5px;
 }
 
-#sidebar-links{
-    font-family: 'Pacifico', cursive;
-    text-align:center;
-    font-size:16px;
-    padding-top:30px;
-}
-
-#tags{
-    opacity:0.0;
-}
-
-#like{
-    opacity:1.0;
-}
-
-#script{
-    padding-left:135px;
-    padding-top:12px;
-}
 
 #credit{
      position: fixed;
@@ -289,7 +286,7 @@ h1 {
     <div class="entries">
         {block:Posts}
         <div class="post">
-            
+                     
 <!--            TEXT POST-->
             {block:Text}
             {block:Title}
@@ -360,18 +357,24 @@ h1 {
  
 <!--            AUDIO POST-->
             {block:Audio}
+            <div class="audio-post">
                 {AudioPlayerWhite}
+            </div>
+            <div class="caption">
                 {block:Caption}
                     {Caption}
                 {/block:Caption}
+            </div>
             {/block:Audio}
  
 <!--            VIDEO POST-->
             {block:Video}
                 {Video-500}
+            <div class="caption">
                 {block:Caption}
                     {Caption}
                 {/block:Caption}
+            </div>
             {/block:Video}
  
 <!--            ANSWER POST-->
@@ -382,37 +385,20 @@ h1 {
                 {Asker}:<br>{Question}<br>{Answer}
             {/block:Answer}
  
-            <div id="info" style="height:20px;">
+            <div class="info" style="height:20px;">
                 <div id="stuff" style="width:200px; float:left;">
-                    {block:Date} {ShortMonth} {DayOfMonthWithZero}{/block:Date} 
-                    <a href="{Permalink}"> {NoteCount}%</a> 
+                    {block:Date} {ShortMonth} {DayOfMonthWithZero}{/block:Date}
+                    <a href="{Permalink}">&nbsp;&nbsp;&nbsp;{NoteCount}</a> 
                     <br>
-
-<!--
-                    {block:RebloggedFrom} 
-                        source:<a href="{ReblogRootURL}"title="{ReblogRoottitle}">{ReblogParentName}</a>{
-                    {/block:RebloggedFrom} 
--->
                 </div>
 
-                <div id="like" style="width:40px; float:right;">
+                <div class="like" style="width:40px; float:right;">
                     {LikeButton color="white" size="20"}
                 </div>
 
-                <div id="tags">
-                    {block:HasTags}
-                        {block:Tags} 
-                            #<a href="{TagURL}">{Tag}      </a>
-                        {/block:Tags}
-                    {/block:HasTags}
-                </div>
             </div>
         </div>
-            {block:PostNotes}
-                {PostNotes}
-            {/block:PostNotes}
-        
-        {/block:Posts}  
+        {/block:Posts} 
     </div>
  
 <div id="credit" style="width:30px; heigh:30px;"><a href="http://cape-themes.tumblr.com/"> <3 </a></div>
